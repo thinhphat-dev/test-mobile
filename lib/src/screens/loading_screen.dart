@@ -9,7 +9,7 @@ class LoadingScreen extends PositionComponent with HasGameRef<AdvancedFightingGa
   @override
   Future<void> onLoad() async {
     super.onLoad();
-    size = Vector2(AdvancedFightingGame.virtualWidth, AdvancedFightingGame.virtualHeight);
+    size = gameRef.size;
     
     _percentageText = TextComponent(
       text: 'ĐANG NẠP TÀI NGUYÊN: 0%',
@@ -19,7 +19,7 @@ class LoadingScreen extends PositionComponent with HasGameRef<AdvancedFightingGa
           fontSize: 20,
         ),
       ),
-      position: Vector2(size.x / 2, size.y / 2),
+      position: size / 2,
       anchor: Anchor.center,
     );
     add(_percentageText);

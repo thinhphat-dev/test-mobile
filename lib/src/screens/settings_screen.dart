@@ -7,12 +7,12 @@ class SettingsScreen extends PositionComponent with HasGameRef<AdvancedFightingG
   @override
   Future<void> onLoad() async {
     super.onLoad();
-    size = Vector2(AdvancedFightingGame.virtualWidth, AdvancedFightingGame.virtualHeight);
+    size = gameRef.size;
 
     add(
       TextComponent(
         text: 'SETTINGS',
-        position: Vector2(size.x / 2, 100),
+        position: Vector2(size.x / 2, size.y * 0.15),
         anchor: Anchor.center,
       ),
     );
@@ -20,7 +20,7 @@ class SettingsScreen extends PositionComponent with HasGameRef<AdvancedFightingG
     add(
       TextComponent(
         text: 'Music: ON',
-        position: Vector2(size.x / 2, 250),
+        position: Vector2(size.x / 2, size.y * 0.35),
         anchor: Anchor.center,
       ),
     );
@@ -28,7 +28,7 @@ class SettingsScreen extends PositionComponent with HasGameRef<AdvancedFightingG
     add(
       TextComponent(
         text: 'SFX: ON',
-        position: Vector2(size.x / 2, 300),
+        position: Vector2(size.x / 2, size.y * 0.45),
         anchor: Anchor.center,
       ),
     );
@@ -36,7 +36,7 @@ class SettingsScreen extends PositionComponent with HasGameRef<AdvancedFightingG
     add(
       TextComponent(
         text: 'Fullscreen: ACTIVE',
-        position: Vector2(size.x / 2, 350),
+        position: Vector2(size.x / 2, size.y * 0.55),
         anchor: Anchor.center,
       ),
     );

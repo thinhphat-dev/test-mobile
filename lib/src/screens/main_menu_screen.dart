@@ -7,7 +7,7 @@ class MainMenuScreen extends PositionComponent with HasGameRef<AdvancedFightingG
   @override
   Future<void> onLoad() async {
     super.onLoad();
-    size = Vector2(AdvancedFightingGame.virtualWidth, AdvancedFightingGame.virtualHeight);
+    size = gameRef.size;
 
     // Tiêu đề game
     add(
@@ -21,7 +21,7 @@ class MainMenuScreen extends PositionComponent with HasGameRef<AdvancedFightingG
             letterSpacing: 4,
           ),
         ),
-        position: Vector2(size.x / 2, 180),
+        position: Vector2(size.x / 2, size.y * 0.3),
         anchor: Anchor.center,
       ),
     );
@@ -30,7 +30,7 @@ class MainMenuScreen extends PositionComponent with HasGameRef<AdvancedFightingG
     add(
       MenuButton(
         'PLAY NOW',
-        position: Vector2(size.x / 2, 380),
+        position: Vector2(size.x / 2, size.y * 0.55),
         onTap: () {
           gameRef.router.pushReplacementNamed('character-select');
         },
@@ -41,7 +41,7 @@ class MainMenuScreen extends PositionComponent with HasGameRef<AdvancedFightingG
     add(
       MenuButton(
         'SETTINGS',
-        position: Vector2(size.x / 2, 460),
+        position: Vector2(size.x / 2, size.y * 0.72),
         onTap: () {
           gameRef.router.pushReplacementNamed('settings');
         },

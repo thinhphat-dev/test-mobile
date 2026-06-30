@@ -34,8 +34,7 @@ class AdvancedFightingGame extends FlameGame {
   @override
   Future<void> onLoad() async {
     await super.onLoad();
-    camera.viewport = FixedResolutionViewport(resolution: Vector2(virtualWidth, virtualHeight));
     router = GameRouter();
-    camera.viewport.add(router);
+    add(router);
   }
 }

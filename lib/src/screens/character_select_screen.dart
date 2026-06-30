@@ -9,7 +9,7 @@ class CharacterSelectScreen extends PositionComponent with HasGameRef<AdvancedFi
   @override
   Future<void> onLoad() async {
     super.onLoad();
-    size = Vector2(AdvancedFightingGame.virtualWidth, AdvancedFightingGame.virtualHeight);
+    size = gameRef.size;
 
     // Tiêu đề
     add(
@@ -23,7 +23,7 @@ class CharacterSelectScreen extends PositionComponent with HasGameRef<AdvancedFi
             letterSpacing: 3,
           ),
         ),
-        position: Vector2(size.x / 2, 70),
+        position: Vector2(size.x / 2, size.y * 0.12),
         anchor: Anchor.center,
       ),
     );
@@ -37,9 +37,9 @@ class CharacterSelectScreen extends PositionComponent with HasGameRef<AdvancedFi
         hp: '100',
         skill: 'Tầm xa',
         color: const Color(0xFF0088FF),
-        position: Vector2(size.x / 2 - 200, 160),
+        position: Vector2(size.x / 2 - 200, size.y * 0.22),
         onSelect: () {
-          // TODO: Bắt đầu trận đấu với FrostMage
+          gameRef.router.pushReplacementNamed('battle');
         },
       ),
     );
@@ -53,9 +53,9 @@ class CharacterSelectScreen extends PositionComponent with HasGameRef<AdvancedFi
         hp: '100',
         skill: 'Cận chiến',
         color: const Color(0xFFFF4400),
-        position: Vector2(size.x / 2 + 200, 160),
+        position: Vector2(size.x / 2 + 200, size.y * 0.22),
         onSelect: () {
-          // TODO: Bắt đầu trận đấu với BlazeFighter
+          gameRef.router.pushReplacementNamed('battle');
         },
       ),
     );
