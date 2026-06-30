@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'components/ground_component.dart';
 import 'components/player.dart';
 import 'components/bot.dart';
+import 'components/game_hud.dart';
 
 /// Lớp quản lý vòng lặp game chính, kế thừa từ FlameGame.
 /// Thiết lập CameraComponent với độ phân giải ảo cố định 1200x800 pixel
@@ -32,6 +33,14 @@ class StickmanGame extends FlameGame {
     // Tạo và thêm đối thủ máy (Bot) tại vị trí x = 900
     final bot = Bot(position: Vector2(900, 700));
     add(bot);
+
+    // Thêm lớp giao diện người dùng (HUD) chứa Joystick và các nút bấm
+    // HUD được thêm vào sau cùng để nằm trên cùng và không bị ảnh hưởng bởi camera
+    final hud = GameHud();
+    add(hud);
+    
+    // Gán tham chiếu player cho hud để điều khiển
+    hud.player = player;
   }
 
   @override
