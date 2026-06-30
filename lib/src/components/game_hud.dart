@@ -1,8 +1,10 @@
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
+import 'package:flame/input.dart';
 import 'package:flutter/material.dart';
 import '../stickman_game.dart';
 import 'player.dart';
+import 'bot.dart';
 
 /// Lớp giao diện người dùng (HUD) chứa Joystick và các nút bấm hành động.
 /// Kế thừa PositionComponent và sử dụng mixin HasGameRef để truy cập vào game instance.
@@ -167,7 +169,26 @@ class GameHud extends PositionComponent with HasGameRef<StickmanGame> {
           ),
         ],
       ),
-      buttonDownColor: color.withOpacity(1.0),
+      buttonDown: RectangleComponent(
+        size: Vector2(60, 60),
+        paint: Paint()
+          ..color = color.withOpacity(1.0)
+          ..style = PaintingStyle.fill,
+        children: [
+          TextComponent(
+            text: label,
+            textRenderer: TextPaint(
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            anchor: Anchor.center,
+            position: Vector2(30, 30),
+          ),
+        ],
+      ),
       position: position,
       anchor: Anchor.center,
       onPressed: onPressed,
@@ -180,7 +201,7 @@ class GameHud extends PositionComponent with HasGameRef<StickmanGame> {
     super.update(dt);
 
     // Cập nhật trạng thái di chuyển của Player dựa trên Joystick
-    if (player != null && !joystick.isIdle) {
+    if (player != null && joystick.direction != JoystickDirection.idle) {
       // Chỉ sử dụng trục X để di chuyển trái/phải
       // relativeDelta.x trả về giá trị từ -1.0 đến 1.0
       final moveSpeed = 250.0; // Tốc độ di chuyển cơ bản (pixel/giây)

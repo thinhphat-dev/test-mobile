@@ -33,17 +33,17 @@ abstract class StickmanBase extends PositionComponent {
     final feetY = 0.0;   // Vị trí chân (gốc của component)
 
     // Tính toán các điểm khớp dựa trên tỷ lệ cơ thể người chuẩn
-    final hipY = -60;       // Hông cách chân 60px
-    final shoulderY = -100; // Vai cách chân 100px (thấp hơn cổ)
-    final neckY = -110;     // Cổ cách chân 110px (cao hơn vai)
-    final headCenterY = neckY - 20; // Tâm đầu cách cổ 20px
+    final hipY = -60.0;       // Hông cách chân 60px
+    final shoulderY = -100.0; // Vai cách chân 100px (thấp hơn cổ)
+    final neckY = -110.0;     // Cổ cách chân 110px (cao hơn vai)
+    final headCenterY = neckY - 20.0; // Tâm đầu cách cổ 20px
 
     // Điểm hông (trung tâm thân dưới)
     final hipPoint = Offset(centerX, hipY);
     
     // Điểm vai trái và phải
-    final leftShoulder = Offset(centerX - 20, shoulderY);
-    final rightShoulder = Offset(centerX + 20, shoulderY);
+    final leftShoulder = Offset(centerX - 20.0, shoulderY);
+    final rightShoulder = Offset(centerX + 20.0, shoulderY);
     
     // Điểm cổ
     final neckPoint = Offset(centerX, neckY);
@@ -52,20 +52,20 @@ abstract class StickmanBase extends PositionComponent {
     final headCenter = Offset(centerX, headCenterY);
     
     // Điểm khuỷu tay trái/phải (tay buông tự nhiên)
-    final leftElbow = Offset(centerX - 25, shoulderY + 30);
-    final rightElbow = Offset(centerX + 25, shoulderY + 30);
+    final leftElbow = Offset(centerX - 25.0, shoulderY + 30.0);
+    final rightElbow = Offset(centerX + 25.0, shoulderY + 30.0);
     
     // Điểm bàn tay trái/phải
-    final leftHand = Offset(centerX - 20, hipY);
-    final rightHand = Offset(centerX + 20, hipY);
+    final leftHand = Offset(centerX - 20.0, hipY);
+    final rightHand = Offset(centerX + 20.0, hipY);
     
     // Điểm đầu gối trái/phải
-    final leftKnee = Offset(centerX - 10, hipY + 30);
-    final rightKnee = Offset(centerX + 10, hipY + 30);
+    final leftKnee = Offset(centerX - 10.0, hipY + 30.0);
+    final rightKnee = Offset(centerX + 10.0, hipY + 30.0);
     
     // Điểm bàn chân trái/phải (chạm đất tại gốc hoặc gần gốc)
-    final leftFoot = Offset(centerX - 15, feetY);
-    final rightFoot = Offset(centerX + 15, feetY);
+    final leftFoot = Offset(centerX - 15.0, feetY);
+    final rightFoot = Offset(centerX + 15.0, feetY);
 
     // --- Vẽ ĐẦU ---
     canvas.drawCircle(headCenter, headRadius, paint);

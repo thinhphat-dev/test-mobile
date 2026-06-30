@@ -1,4 +1,5 @@
 import 'package:flame/game.dart';
+import 'package:flame/camera.dart';
 import 'package:flutter/material.dart';
 import 'components/ground_component.dart';
 import 'components/player.dart';
@@ -20,7 +21,7 @@ class StickmanGame extends FlameGame {
     // - Flame sẽ tự động scale toàn bộ nội dung trong world để vừa với màn hình thực tế
     // - Tọa độ logic luôn nằm trong khoảng x: 0-1200, y: 0-800 bất kể kích thước màn hình thật
     // - Điều này giúp việc tính toán vật lý và vị trí nhất quán trên mọi device
-    camera.viewport = FixedResolutionViewport(Vector2(1200, 800));
+    camera.viewport = FixedResolutionViewport(resolution: Vector2(1200, 800));
 
     // Thêm thành phần mặt đất vào thế giới game
     final ground = GroundComponent();
