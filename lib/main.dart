@@ -1,4 +1,5 @@
 import 'package:flame/camera.dart';
+import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -33,7 +34,8 @@ class AdvancedFightingGame extends FlameGame {
   Future<void> onLoad() async {
     await super.onLoad();
     camera.viewport = FixedResolutionViewport(resolution: Vector2(virtualWidth, virtualHeight));
+    camera.viewfinder.anchor = Anchor.topLeft;
     router = GameRouter();
-    add(router);
+    world.add(router);
   }
 }
