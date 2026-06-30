@@ -1,12 +1,15 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'src/stickman_game.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
-  // Khóa thiết bị ở chế độ hiển thị ngang
+  // Cho phép cả hướng dọc và ngang để máy ảo khởi động không bị lỗi hiển thị
   await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
     DeviceOrientation.landscapeLeft,
     DeviceOrientation.landscapeRight,
   ]);
@@ -14,7 +17,7 @@ void main() async {
   // Vô hiệu hóa thanh trạng thái hệ thống
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
-  final game = AdvancedFightingGame();
+  final game = StickmanGame();
   runApp(
     GameWidget(
       game: game,
