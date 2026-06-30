@@ -1,0 +1,21 @@
+```
+# Build artifacts
+build/
+*.dart.js
+*.js
+*.map
+
+# Dependencies
+.pub/
+.packages
+.dart_tool/
+
+# Logs
+*.log
+**/logs
+
+# Environment
+.env
+.env.local
+.env.*
+```
