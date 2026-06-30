@@ -1,3 +1,4 @@
+import 'package:flame/camera.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,8 +7,6 @@ import 'src/game_router.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
     DeviceOrientation.landscapeLeft,
     DeviceOrientation.landscapeRight,
   ]);
@@ -33,6 +32,7 @@ class AdvancedFightingGame extends FlameGame {
   @override
   Future<void> onLoad() async {
     await super.onLoad();
+    camera.viewport = FixedResolutionViewport(resolution: Vector2(virtualWidth, virtualHeight));
     router = GameRouter();
     add(router);
   }
