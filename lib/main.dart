@@ -21,7 +21,9 @@ void main() async {
   );
 }
 
-class AdvancedFightingGame extends FlameGame with GameRouter {
+class AdvancedFightingGame extends FlameGame {
+  late final GameRouter router;
+
   static const double virtualWidth = 1280.0;
   static const double virtualHeight = 720.0;
 
@@ -31,6 +33,7 @@ class AdvancedFightingGame extends FlameGame with GameRouter {
   @override
   Future<void> onLoad() async {
     await super.onLoad();
-    await router.load();
+    router = GameRouter();
+    add(router);
   }
 }

@@ -26,6 +26,6 @@ class LoadingScreen extends Component with HasGameRef<AdvancedFightingGame> {
       _progress = i / 10.0;
       _percentageText.text = 'ĐANG NẠP TÀI NGUYÊN: ${(_progress * 100).toInt()}%';
     }
-    // gameRef.router.pushReplacementNamed('menu');
+    gameRef.router.pushReplacementNamed('menu');
   }
 }
