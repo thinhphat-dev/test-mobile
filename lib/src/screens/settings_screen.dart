@@ -1,6 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 import '../../main.dart';
+import 'main_menu_screen.dart';
 
 class SettingsScreen extends PositionComponent with HasGameRef<AdvancedFightingGame> {
   @override
@@ -41,10 +42,12 @@ class SettingsScreen extends PositionComponent with HasGameRef<AdvancedFightingG
     );
 
     add(
-      TextComponent(
-        text: '[ BACK ]',
-        position: Vector2(100, size.y - 50),
-        anchor: Anchor.center,
+      MenuButton(
+        'BACK',
+        position: Vector2(150, size.y - 60),
+        onTap: () {
+          gameRef.router.pushReplacementNamed('menu');
+        },
       ),
     );
   }
