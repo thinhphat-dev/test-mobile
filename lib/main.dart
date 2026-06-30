@@ -1,37 +1,32 @@
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flame/game.dart';
-import 'src/stickman_game.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Ép buộc hướng xoay ngang màn hình (Landscape)
+  
+  // Khóa thiết bị ở chế độ hiển thị ngang
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.landscapeLeft,
     DeviceOrientation.landscapeRight,
   ]);
-
-  // Ẩn thanh trạng thái hệ thống để trải nghiệm game toàn màn hình
+  
+  // Vô hiệu hóa thanh trạng thái hệ thống
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
-  runApp(const MyApp());
+  final game = AdvancedFightingGame();
+  runApp(
+    GameWidget(
+      game: game,
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // Khởi tạo instance cố định để tránh tạo lại game khi widget rebuild
-  static final _game = StickmanGame();
+class AdvancedFightingGame extends FlameGame {
+  // Định nghĩa kích thước khung nhìn ảo tiêu chuẩn để co giãn tỷ lệ đồ họa
+  static const double virtualWidth = 1280.0;
+  static const double virtualHeight = 720.0;
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.black,
-        body: GameWidget(game: _game),
-      ),
-    );
-  }
+  Color backgroundColor() => const Color(0xFF09090E);
 }
