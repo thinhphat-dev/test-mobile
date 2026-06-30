@@ -10,15 +10,11 @@ class GameRouter extends RouterComponent {
   GameRouter()
       : super(
           initialRoute: 'loading',
-          routes: {},
+          routes: {
+            'loading': Route(LoadingScreen.new),
+            'menu': Route(MainMenuScreen.new),
+            'settings': Route(SettingsScreen.new),
+            'character-select': Route(CharacterSelectScreen.new),
+          },
         );
-
-  @override
-  Future<void> onLoad() async {
-    super.onLoad();
-    routes['loading'] = Route(LoadingScreen.new);
-    routes['menu'] = Route(MainMenuScreen.new);
-    routes['settings'] = Route(SettingsScreen.new);
-    routes['character-select'] = Route(CharacterSelectScreen.new);
-  }
 }

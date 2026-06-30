@@ -2,17 +2,24 @@ import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 import '../../main.dart';
 
-class LoadingScreen extends Component with HasGameRef<AdvancedFightingGame> {
+class LoadingScreen extends PositionComponent with HasGameRef<AdvancedFightingGame> {
   late final TextComponent _percentageText;
   double _progress = 0.0;
 
   @override
   Future<void> onLoad() async {
     super.onLoad();
+    size = Vector2(AdvancedFightingGame.virtualWidth, AdvancedFightingGame.virtualHeight);
     
     _percentageText = TextComponent(
       text: 'ĐANG NẠP TÀI NGUYÊN: 0%',
-      position: Vector2(AdvancedFightingGame.virtualWidth / 2, AdvancedFightingGame.virtualHeight / 2),
+      textRenderer: TextPaint(
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+        ),
+      ),
+      position: Vector2(size.x / 2, size.y / 2),
       anchor: Anchor.center,
     );
     add(_percentageText);
@@ -29,3 +36,4 @@ class LoadingScreen extends Component with HasGameRef<AdvancedFightingGame> {
     gameRef.router.pushReplacementNamed('menu');
   }
 }
+
