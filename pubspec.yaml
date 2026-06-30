@@ -9,9 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flame: ^1.14.0 # Thư viện game engine cốt lõi [cite: 8]
-  flame_audio: ^2.1.0 # Quản lý và phát âm thanh tối ưu hiệu năng [cite: 8]
-  flutter_bloc: ^8.1.3 # Quản lý trạng thái ứng dụng [cite: 1]
+  flame: ^1.14.0
+  flame_audio: ^2.1.0
+  flutter_bloc: ^8.1.3
 
 dev_dependencies:
   flutter_test:
