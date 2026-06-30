@@ -33,9 +33,9 @@ abstract class StickmanBase extends PositionComponent {
     final feetY = 0.0;   // Vị trí chân (gốc của component)
 
     // Tính toán các điểm khớp dựa trên tỷ lệ cơ thể người chuẩn
-    final hipY = -60;    // Hông cách chân 60px
-    final shoulderY = -110; // Vai cách hông 50px
-    final neckY = -100;  // Cổ nằm giữa vai và đầu
+    final hipY = -60;       // Hông cách chân 60px
+    final shoulderY = -100; // Vai cách chân 100px (thấp hơn cổ)
+    final neckY = -110;     // Cổ cách chân 110px (cao hơn vai)
     final headCenterY = neckY - 20; // Tâm đầu cách cổ 20px
 
     // Điểm hông (trung tâm thân dưới)
